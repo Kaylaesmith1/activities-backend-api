@@ -65,7 +65,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 # DEBUG = False
 
-ALLOWED_HOSTS = ['8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu100.gitpod.io', 'activities-backend-api.herokuapp.com']
+ALLOWED_HOSTS = ['8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu100.gitpod.io', 'activities-backend-api-a2cb7e703660.herokuapp.com']
 
 
 # Application definition
