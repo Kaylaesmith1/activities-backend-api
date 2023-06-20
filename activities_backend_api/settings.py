@@ -65,7 +65,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 # DEBUG = False
 
-ALLOWED_HOSTS = ['8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu100.gitpod.io', 'activities-backend-api-a2cb7e703660.herokuapp.com']
+# ALLOWED_HOSTS = ['8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu100.gitpod.io']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
+# ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -108,13 +110,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
+
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True
