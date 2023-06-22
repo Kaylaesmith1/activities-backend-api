@@ -67,8 +67,6 @@ DEBUG = False
 
 # ALLOWED_HOSTS = ['localhost']
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
-# , 'localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu100.gitpod.io']
-
 
 # Application definition
 
