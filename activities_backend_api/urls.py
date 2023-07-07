@@ -32,4 +32,7 @@ urlpatterns = [
     path('', include('likes.urls')),
     path('', include('followers.urls')),
 
+# CUSTOM MODELS ADDED TO PP5
+    path('', include('reviews.urls')),
+
 ]
