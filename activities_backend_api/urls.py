@@ -33,5 +33,7 @@ urlpatterns = [
 
 # CUSTOM MODELS ADDED TO PP5
     path('', include('reviews.urls')),
+    path('', include('contact.urls')),
+
 
 ]

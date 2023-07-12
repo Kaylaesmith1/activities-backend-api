@@ -67,8 +67,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 # DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io']
-# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
+# ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
 
 # Application definition
 
@@ -99,6 +99,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'reviews',
+    'contact',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
