@@ -9,7 +9,7 @@ from .settings import (
 @api_view()
 def root_route(request):
     return Response({
-        "message": "You've reached the Summer Activities backend API."
+        "message": "You've reached the Iowa Summer Activities backend API."
     })
 
 # dj-rest-auth logout view fix
