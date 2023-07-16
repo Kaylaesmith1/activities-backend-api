@@ -15,7 +15,6 @@ class ReviewSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
-    review_id = serializers.SerializerMethodField()
 
 
     def get_is_owner(self, obj):
@@ -28,21 +27,12 @@ class ReviewSerializer(serializers.ModelSerializer):
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
 
-    def get_review_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            review = Review.objects.filter(
-                owner=user, post=obj
-            ).first()
-            return review.id if review else None
-        return None
-
     class Meta:
         model = Review
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'post',
             'review', 'rating', 'is_owner', 'profile_id',
-            'profile_image', 'review_id',
+            'profile_image',
         ]
 
     def create(self, validated_data):

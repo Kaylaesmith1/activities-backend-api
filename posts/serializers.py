@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
-
+from reviews.models import Review
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -12,6 +12,8 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
+    review_id = serializers.SerializerMethodField()
+
 
 
 
@@ -43,10 +45,20 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def get_review_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            review = Review.objects.filter(
+                owner=user, post=obj
+            ).first()
+            print("*************************** REVIEW ID ******************", review.id if review else None)
+            return review.id if review else None
+        return None
+
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
-            'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter', 'like_id', 'likes_count', 'comments_count'
+            'profile_image', 'created_at', 'updated_at', 
+            'title', 'content', 'image', 'image_filter', 'like_id', 'likes_count', 'comments_count', 'review_id'
         ]
