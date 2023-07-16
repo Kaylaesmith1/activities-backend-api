@@ -1,6 +1,6 @@
 # README file currently being updated / edited
 
-<!-- # **Iowa Summer Activities (backend API)**
+# **Iowa Summer Activities (backend API)**
 
 ## Table of Contents
 
@@ -30,6 +30,7 @@
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
+#
 
 # **Project Overview**
 
@@ -46,71 +47,106 @@ This API includes a search capacity to improve the user experience. Users can se
   + The backend portion of this project is deployed on Heroku and can be found at: [Iowa Summer Activities API](https://activities-backend-api-a2cb7e703660.herokuapp.com/)
   + The corresponding GitHub repository for the frontend portion of the project can be found at: [Activities Front End](https://github.com/Kaylaesmith1/activities-frontend)
 
-## Project Structure -- START HERE
+## Project Structure
 
-The overall structure of the project was modelled on the [drf-api](https://github.com/Code-Institute-Solutions/drf-api) walkthrough due to time constraints and the Project 5 assessments requirements including most of what is included in the walkthrough project.
+The Iowa Summer Activities project was largely modelled after the Moments walkthrough [drf-api](https://github.com/Code-Institute-Solutions/drf-api) that was completed as part of the Code Institute's Diploma in Fullstack Development program for the final project, incorporating React.
 
-However, additional custom models have also been developed where possible such as going, and review, and I have tried to customize the walkthrough models somewhat as well to fit more closely with the scope of my own sharing platform. 
+To customize my project, I created two additional models: Reviews and Contact. The former allows logged-in users to review an event with a comment and 1-5 star rating, while the latter enables logged-in users to contact the Des Moines city officials in charge of the website and activity management.
 
 ## Developer User Stories
-### Profiles
+### EPIC | Project Environment Setup
+As the developer, I can create a new project so that I can develop the website.
 
-+ As a developer/superuser I can view a list of all profiles so that I can see all the profiles that have been created
-+ As a developer/superuser I can view the details of one profile so that I can see individual profile data
-+ As a developer/superuser I can edit a profile when I am logged in so that update my personal information
-+ As a developer/superuser I can delete a profile that I own so that I can delete my user account from the API
+#### User Stories
+- As the developer I will create a new repository on GitHub specifically for the backend so that I can maintain the API and the frontend of the project separate.
+- As the developer I will install Django, Cloudinary, Pillow, and the apps necessary so that the final project is fully functional in a local and eventually a live environment.
+- As the developer I will create a superuser account so that I can implement and test features as an Admin user from the backend.
+- As the developer I will create an env.py file with secure variables to be housed in the .gitignore file so that I have secure information kept out of a public space.
+- As the developer I can test and ensure the project works locally so that when I push it to Heroku, I know it will be able to work in a live environment.
 
-### Activities
+### EPIC | Project Environment Setup
+As the developer, I can deploy the app on Heroku so that users can view and interact with the site publicly.
 
-+ As a developer/superuser I can view a list of all events so that I can see all events at once
-+ As a developer/superuser I can view a single event so that I can see single event details, including comments
-+ As a developer/superuser I can create a new event so that this event will be displayed in the events list
-+ As a developer/superuser I can edit an event that I created so that I can amend any missing or incorrect information on the event posting
-+ As a developer/superuser I can delete an event which I created so that I can delete event data from the API
+#### User Stories
+- As the developer, I will create a new Heroku app for the backend portion of this project so that the API data can be viewed and edited for the whole project.
+- As the developer I can link the GitHub repository to the Heroku app so that I can deploy my repository to the Heroku platform through a live site.
 
-### Comments
+### EPIC | Profiles
+As the developer, I can create a Profiles model so that users can their own and others' profiles.
 
-+ As a developer/superuser I can create a comment so that I can link a comment to an event
-+ As a developer/superuser I can view a list of all comments so that I can see all comments created in the API
-+ As a developer/superuser I can retrieve a single comment by ID so that I can edit or delete this comment
-+ As a developer/superuser I can edit a comment that I created so that I can amend any missing or incorrect information
-+ As a developer/superuser I can delete a comment which I created so that I can delete comment data from the API
+#### User Stories
+- As the developer, I can create a register / login feature so users and create an account and login.
+- As the developer, I can display the user's name so that they see they've successfully logged-into their account.
+- As a developer/superuser I can view all profiles and their details so that I can see what has been created.
+- As a developer/superuser I can edit a profile when I am logged-in so that the information in the API is updated.
+- As the developer, I can display a log out feature so users can logout of their account.
 
-### Followers
+### EPIC | Comments
+As the developer, I can create a comments feature so registered, logged-in users can leave a comment on an activity.
 
-+ As a developer/superuser I can create a follow so that I can follow another user
-+ As a developer/superuser I can view a list of follows so that I can see all the follows that have been created
-+ As a developer/superuser I can delete a follow so that I can unfollow another user profile
+#### User Stories
+- As a superuser, I can search a comment so that I can edit or delete that comment (w specific ID) from the backend if it's inappropriate or erroneous.
+- As the developer, I can create a message reminding users to sign up / log in to comment so that the data in the API has a clear author.
+- As the developer, I can implement a 'comments' module so so I can see all comments by users through the backend API.
+- As the developer, I can create a feature that ensures only registered, logged-in users can leave comments so that no erroneous comments can be left.
+
+### EPIC | Search
+As the developer, I can create a Search feature so that registered or logged-in users can search events happening by keyword or author.
+
+#### User Stories
+- As a developer/user I can see a search field under the NavBar so that I can search for a specific event by keyword or author.
+- As a developer/user I can view a list of events by a specific profile so that I can filter events by user.
+
+### EPIC | Following
+As the developer, I can create a follow module so that logged-in users can follow each other.
+
+#### User Stories
+- As a developer/superuser I can create a follow feature so that I know which users are following other via the data will be displayed in the API.
+
+### EPIC | Events
+As the developer, I can create an Events feature so that registered / logged-in users can view events happening in the community.
+
+#### User Stories
+- As a developer/superuser I can create an event so that other users will be able to view information pertaining to that event.
+- As a developer/superuser I can view a list of all events so that I can see all events currently in the backend API.
+- As a developer/superuser I can look at a specific event by ID so that I can view the event details of a singular event.
+- As a developer/superuser I can edit a specific event by ID so that information remains updated in the API pertaining to that event.
+- As a developer/superuser I can delete a specific event so that no erroneous information will appear on the site (or in the backend API) if the event details are incorrect or the event has been cancelled.
+
+### EPIC | Reviews
+As the developer, I can create a reviews section so registered, logged-in users can leave a review comment and 1-5 star review of an activity or event.
+
+#### User Stories
+- As a developer/user I can create a review and rating so that other logged-in users can see what I thought about an event.
+- As a developer/user I can look at all reviewed events so that I can see the opinions of other users through data stored in the API.
+- As a developer/user I can edit my own review and save it so that irrelevant information is no longer stored in the API.
+- As a developer/user I can delete my own review so that that data is removed from the API.
 
 
-### Search and Filter
+### EPIC | Contact
+As the developer I can create a contact page with a form so that logged-in users can get in touch with city officials managing the site and events.
 
-+ As a developer/superuser I can see a search field in the events list so that I can search for a specific event
-+ As a developer/superuser I can filter the events list by category so that I can see only the events relating to one desired category
-+ As a developer/superuser I can view a list of events by profiles I follow so that I can see only the events relating to profiles that I like
-+ As a developer/superuser I can view a list of profiles followed by another profile so that I can see which profiles are following it
-+ As a developer/superuser I can view a list of events I have posted an interested or going id to so that I can see only the events I am interested in attending
-+ As a developer/superuser I can view a list of events relating to just one profile so that I can see only the events posted by a single user
-+ As a developer/superuser I can view a list of comments linked to a particular event so that I can see see the comments relating to one single event id
-+ As a developer/superuser I can view a list of reviews linked to a particular event so that I can see see the reviews relating to one single event id
+#### User Stories
+- As a developer/superuser I can create a contact page so that I can see message sent from logged-in users.
 
 
-### Reviews
+### EPIC | Testing & Documentation
+As the developer, I can concisely document my testing and deployment methods so assessors and other developers can understand the website from a technical standpoint.
 
-+ As a developer/superuser I can create a review so that I can link a review and rating to an event
-+ As a developer/superuser I can view a list of all reviews so that I can see all reviews created in the API
-+ As a developer/superuser I can edit a review that I created so that I can amend any missing or incorrect information
-+ As a developer/superuser I can delete a review which I created so that I can delete review data from the API
-
-### Contact
-
-+ As a developer/superuser I can create a contact so that I can see messages created
-+ As a developer/superuser I can view a list of all contacts so that I can see all contacts created in the API
-+ As a developer/superuser I can edit a contact that I created so that I can amend any missing or incorrect information
-+ As a developer/superuser I can delete a contact which I created so that I can delete contact data from the API
+#### User Stories
+- As the developer I will include in the documentation a specific description of the Heroku deployment process with screenshots so that assessors and colleagues can easily see and understand the deployment process.
+- As the developer/superuser I will create a TESTING.md file for the backend API of this project so that I can ensure this portion of the project is bug-free and assessors can easily gauge the thoroughness of my testing processes.
+- As the developer/superuser I will create a README.md file for the backend API of this project so that assessors and other program colleagues can easily view my work.
 
 
-# Database Designs
+### EPIC | Error Page
+As the developer, I can create status error pages so users will know if there is a problem. 
+
+#### User Stories
+- As the developer I can create a 404 - Page Not Found error message so that I know if my url doesn't exist in the backend API.
+
+
+# Database Designs -- START HERE
 
 ## Models
 
@@ -162,8 +198,8 @@ I have set up ordering for the profile list, and selected the following paramete
 
 I have set up two field filters on the events list to filter as follows:
 
-1. Profiles that are following the logged in user
-2. Profiles that are being followed by the logged in user
+1. Profiles that are following the logged-in user
+2. Profiles that are being followed by the logged-in user
 
 If the user logs in, and views the detail of their own profile, additional Update and Delete functionality becomes available. Below the profile data, a pre-populated form is available to edit the profile model fields. At the top of the screen, a delete button is available to delete the profile from the API.
 
@@ -205,11 +241,11 @@ I have set up a search function whereby the full events list can be searched on 
 
 I have set up six field filters on the events list to filter as follows:
 
-1. Events whose owners the logged in user is following - This will be the front end 'Feed' page
+1. Events whose owners the logged-in user is following - This will be the front end 'Feed' page
 
-2. Events which the logged in user has posted interested in - This will combine with filter 3 to be the front end 'My Events' page 
+2. Events which the logged-in user has posted interested in - This will combine with filter 3 to be the front end 'My Events' page 
 
-3. Events which the logged in user has posted going to - This will combine with filter 2 to be the front end 'My Events' page
+3. Events which the logged-in user has posted going to - This will combine with filter 2 to be the front end 'My Events' page
 
 4. All events posted by user - This will be used in the 'Profile' page
 
@@ -221,7 +257,7 @@ If the user logs in, a form becomes visible under the events list to create a ne
 
 ![Create an Event](images/create-event-form.png)
 
-Once logged in, if the user views the details of a single event which they created additional Update and Delete functionality becomes available. Below the event data, a pre-populated form is available to edit the event. At the top of the screen, a delete button is available to delete the event from the API.
+Once logged-in, if the user views the details of a single event which they created additional Update and Delete functionality becomes available. Below the event data, a pre-populated form is available to edit the event. At the top of the screen, a delete button is available to delete the event from the API.
 
 ![Event Edit Form](images/event-edit.png)
 
@@ -243,7 +279,7 @@ If the user logs in, a form becomes visible under the comments list to create a 
 
 ![Create a Comment](images/create-comment-form.png)
 
-Once logged in, if the user views the details of a single comment which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
+Once logged-in, if the user views the details of a single comment which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
 
 ![Comment Edit Form](images/comment-edit.png)
 
@@ -261,7 +297,7 @@ If a user tries to post interest to the same event twice, they see an error mess
 
 ![Create Duplicate Interested](images/interested-no-duplicates.png)
 
-Once logged in, if the user views the details of a single interested post which they created additional Delete functionality becomes available. It is not possible to Edit an interested post.
+Once logged-in, if the user views the details of a single interested post which they created additional Delete functionality becomes available. It is not possible to Edit an interested post.
 
 ![Delete an Interested Post](images/interested-delete.png)
 
@@ -279,7 +315,7 @@ If a user tries to post going to the same event twice, they see an error message
 
 ![Create Duplicate Going](images/going-no-duplicates.png)
 
-Once logged in, if the user views the details of a single going post which they created additional Delete functionality becomes available. It is not possible to Edit a going post.
+Once logged-in, if the user views the details of a single going post which they created additional Delete functionality becomes available. It is not possible to Edit a going post.
 
 ![Delete a Going Post](images/going-delete.png)
 
@@ -297,7 +333,7 @@ If a user tries to follow the same profile twice, they see an error message sayi
 
 ![Create Duplicate Follower](images/follower-no-duplicates.png)
 
-Once logged in, if the user views the details of a single follower post which they created additional Delete functionality becomes available. It is not possible to Edit a follower post.
+Once logged-in, if the user views the details of a single follower post which they created additional Delete functionality becomes available. It is not possible to Edit a follower post.
 
 ![Delete a Follower Post](images/follower-delete.png)
 
@@ -323,7 +359,7 @@ If a user tries to review same event twice, they see an error message saying tha
 
 ![Create Duplicate Review](images/reviews-no-duplicates.png)
 
-Once logged in, if the user views the details of a single review which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
+Once logged-in, if the user views the details of a single review which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
 
 ![Review Edit Form](images/review-edit.png)
 
@@ -345,7 +381,7 @@ If the user logs in, a form becomes visible under the contact list to create a n
 
 ![Create a Contact](images/create-contact-form.png)
 
-Once logged in, if the user views the details of a single contact which they created additional Update and Delete functionality becomes available. Below the contact data, a pre-populated form is available to edit the contact. At the top of the screen, a delete button is available to delete the contact from the API.
+Once logged-in, if the user views the details of a single contact which they created additional Update and Delete functionality becomes available. Below the contact data, a pre-populated form is available to edit the contact. At the top of the screen, a delete button is available to delete the contact from the API.
 
 ![Contact Edit Form](images/contact-edit.png)
 
@@ -452,7 +488,7 @@ The project was deployed to [Heroku](https://www.heroku.com). To deploy, please 
 10. Choose a unique app name, choose your region and click 'Create app".
 
 
-11. Next we need to connect an external PostgreSQL database to the app from [ElephantSQL](https://customer.elephantsql.com/login).  Once logged into your ElephantSQL dashboard, you click 'Create New Instance' to create a new database. Give the database a: 
+11. Next we need to connect an external PostgreSQL database to the app from [ElephantSQL](https://customer.elephantsql.com/login).  Once logged-into your ElephantSQL dashboard, you click 'Create New Instance' to create a new database. Give the database a: 
 * Name
 * Tiny Turtle Free Plan
 * Selected data center near you
@@ -564,4 +600,4 @@ To clone and set up this project you need to follow the steps below.
 https://codingpr.com/star-rating-blog/
 ) to learn about implementing a rating system into my reviews app
 * I learned about [Django Taggit](https://django-taggit.readthedocs.io/en/latest/api.html) before implementing this library into my events app
-* I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar -->
+* I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar
