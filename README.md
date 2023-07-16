@@ -146,7 +146,7 @@ As the developer, I can create status error pages so users will know if there is
 - As the developer I can create a 404 - Page Not Found error message so that I know if my url doesn't exist in the backend API.
 
 
-# Database Designs -- START HERE
+<!-- # Database Designs -- START HERE
 
 ## Models
 
@@ -600,4 +600,4 @@ To clone and set up this project you need to follow the steps below.
 https://codingpr.com/star-rating-blog/
 ) to learn about implementing a rating system into my reviews app
 * I learned about [Django Taggit](https://django-taggit.readthedocs.io/en/latest/api.html) before implementing this library into my events app
-* I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar
+* I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar -->
