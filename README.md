@@ -1,42 +1,40 @@
-# README file currently being updated / edited
-
 # **Iowa Summer Activities (Backend API)**
 
-## Table of Contents
+## [Table of Contents](#table-of-contents)
 
-- [Project](#project)
-  * [Objective](#objective)
-  * [Links to Deployed Project](#links-to-deployed-project)
-- [Project Structure](#project-structure)
-  * [Developer User Stories](#developer-user-stories)
-    + [Profiles](#profiles)
-    + [Activities / Events](#events)
-    + [Search-NEEDED????](#search)
-    + [Comments](#comments)
-    + [Followers](#followers)
-    + [Reviews](#reviews)
-    + [Contact](#contact)
-- [Database Design](#database-design)
-  * [Models](#models)
+- [**Project Overview**](#project-overview)
+  - [Objective](#objective)
+  - [Links to Deployed Project](#links-to-deployed-project)
+  - [Project Structure](#project-structure)
+  - [Developer User Stories](#developer-user-stories)
+- [Database Designs](#database-designs)
+  - [Models](#models)
+- [PUT DB DIAGRAM HERE](#put-db-diagram-here)
 - [Features](#features)
-  * [Homepage](#homepage)
-  * [Profile Data](#profile-list)
-  * [Activities / Events Data](#events-list)
-  * [Followers Data](#followers-data)
-  * [Reviews Data](#reviews-data)
-  * [Contact Data](#contact-data)
+  - [Homepage](#homepage)
+  - [Profile Data](#profile-data)
+  - [Posts Data](#posts-data)
+  - [Comments Data](#comments-data)
+  - [Followers Data](#followers-data)
+  - [Reviews Data](#reviews-data)
+  - [Contact Data](#contact-data)
+  - [Likes Data](#likes-data)
 - [Agile Workflow](#agile-workflow)
-  * [Github Project Board](#github-project-board)
-- [Testing](#testing)
+  - [GitHub Project Board](#github-project-board)
+- [Testing -- FINISH THIS SECTION](#testing----finish-this-section)
+- [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Frameworks, Libraries & Software](#frameworks-libraries--software)
 - [Deployment](#deployment)
+  - [How to fork this repository on GitHub](#how-to-fork-this-repository-on-github)
+  - [Cloning And Setting Up This Project](#cloning-and-setting-up-this-project)
 - [Credits](#credits)
-#
 
 # **Project Overview**
 
 ## Objective
 
-This is a website to designed to be a platform for (summer) activities where users can post events happening in Des Moines, Iowa or the surrouding areas to be able to better connect with neighbors and people sharing similar interests.
+This is a website designed to be a platform for (summer) activities where users can post events happening in Des Moines, Iowa or the surrounding areas to be able to better connect with neighbors and people sharing similar interests.
 
 The Iowa Summer Activities API provides a backend database to create, view, edit and delete information pertaining to the aforementioned events. From the database, users can upload information about an activity (picture, title, description / event info). Other users can then like or review and rate this activity; all users can post comments on an event.
 
@@ -52,6 +50,8 @@ This API includes a search capacity to improve the user experience. Users can se
 The Iowa Summer Activities project was largely modelled after the Moments walkthrough [drf-api](https://github.com/Code-Institute-Solutions/drf-api) that was completed as part of the Code Institute's Diploma in Fullstack Development program for the final project, incorporating React.
 
 To customize my project, I created two additional models: Reviews and Contact. The former allows logged-in users to review an event with a comment and 1-5 star rating, while the latter enables logged-in users to contact the Des Moines city officials in charge of the website and activity management.
+
+[Back to top](<#table-of-contents>)
 
 ## Developer User Stories
 ### EPIC | Project Environment Setup
@@ -145,6 +145,9 @@ As the developer, I can create status error pages so users will know if there is
 #### User Stories
 - As the developer I can create a 404 - Page Not Found error message so that I know if my url doesn't exist in the backend API.
 
+[Back to top](<#table-of-contents>)
+
+
 
  # Database Designs
 
@@ -157,13 +160,15 @@ I created the following models for the Iowa Summer Activities Backend API, based
  * Followers (Allows users to follow (and unfollow) other profiles)
  * Likes (Users can like (and unlike) activity posts)
 
- The two models below were created as customs models to meet assesmment criteria for the PP5 Advanced Frontend project:
+ The two models below were created as customs models to meet assessmment criteria for the PP5 Advanced Frontend project:
  * Review (For users to rate an activity using a five-star system and leave a review comment for that activity)
  * Contact (For users send a message to the site manager)
 
 # PUT DB DIAGRAM HERE
 <!-- The relationships between all of these models is summarized in the followed entity relationship diagram:
 ![erd](https://res.cloudinary.com/dkolsfjkx/image/upload/v1685955455/events-erd2_hejg6i.jpg) -->
+
+[Back to top](<#table-of-contents>)
 
 # Features
 
@@ -187,7 +192,7 @@ The following fields were added through the profiles serializer to collect furth
 * followers_count
 * following_count
 
-If the superuser logs in, they can view details of profile information and update or delete it. When editing data, a prepopulated form appears for that user. The save button will save this updated information to the API, while the delete button will remove the information from the API.
+If the superuser logs in, they can view details of profile information and update or delete it. When editing data, a pre-populated form appears for that user. The save button will save this updated information to the API, while the delete button will remove the information from the API.
 
 ![Profile Edit Form](images/profile-edit.png)
 
@@ -244,71 +249,68 @@ Clicking the delete button deletes this owner-follower combination from the data
 
 ![Edit Followers](images/edit-followers.png)
 
-<!-- # START HERE
 ## Reviews Data
 
-Within the Review List section, a user can view a list of all reviews in the API. 
+Users can see a list of all reviews in the API. 
 
-![Review List](images/reviews-page.png)
+![Review List](images/reviews.png)
 
-Besides the fields created in the Review model (as shown in the ERD Diagram), through the serializer, I also added the following fields to the JSON data:
+Once logged in as a superuser, the person can create a review by filling out the form fields. Only one review per user per specific event is allowed; an error message will be shown if the same user tries to review the activity a second time.
 
-* is_owner
-* profile_id
-* profile_image
+![Create a Review](images/create-review.png)
 
-I also set up one field filter to filter the reviews by the event they are reviewing.
+A logged-in super user can also update and delete reviews from the API by clicking the form. The pre-populated fields will appear, as in other forms and the superuser can update the information.
 
-If the user logs in, a form becomes visible under the reviews list to create a new review. The event they want to review can be selected from the dropdown, and a review text and rating must be entered to post the review successfully.
+![Edit Review](images/edit-review.png)
 
-![Create a Review](images/create-review-form.png)
-
-If a user tries to review same event twice, they see an error message saying that they have already reviewed the selected event, and the duplicate review is not created.
-
-![Create Duplicate Review](images/reviews-no-duplicates.png)
-
-Once logged-in, if the user views the details of a single review which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
-
-![Review Edit Form](images/review-edit.png)
 
 ## Contact Data
 
-Within the Contact List section, a user can view a list of all contacts posted in the API. 
+On the Contact page, users can view all contact messages stored in the API.
 
-![Contact List](images/contact-page.png)
+![Contact List](images/contacts.png)
 
-Besides the fields created in the Contact model (as shown in the ERD Diagram), through the serializer, I also added the following fields to the JSON data:
+Once the superuser is logged in, they can create a contact message by filling out the form fields. This information will be saved to the API.
 
-* is_owner
-* profile_id
-* profile_image
+![Create a Contact](images/create-contact.png)
 
-I also set up one field filter to filter the messages by the profile they are sent to.
+The superuser can also edit the contact form by changing the information in the pre-populated fields and saving it. The updated information will be stored in the database. On this page, the superuser also has the ability to delete the contact form information, which will remove this information from the API and system in general.
 
-If the user logs in, a form becomes visible under the contact list to create a new contact. The profile they want to contact can be selected from the dropdown, and a message text must be entered to post the contact successfully.
+![Edit Contact Form](images/edit-contact.png)
 
-![Create a Contact](images/create-contact-form.png)
+## Likes Data
 
-Once logged-in, if the user views the details of a single contact which they created additional Update and Delete functionality becomes available. Below the contact data, a pre-populated form is available to edit the contact. At the top of the screen, a delete button is available to delete the contact from the API.
+In the Likes section, users can see a list of the events users have liked.
 
-![Contact Edit Form](images/contact-edit.png)
+![Likes List](images/likes.png)
+
+A superuser can create likes by filling out the form with the owner and the event. This information will be saved to the API and displayed on the frontend also.
+
+![Create likes](images/create-like.png)
+
+The superuser can also edit or delete the like but entering into the form. The pre-populated fields can be changed and the information saved to update the likes on the backend as well as on the frontend. Deleting a like will erase this information from both the frontend and backend.
+
+![Contact Edit Form](images/edit-like.png)
+
+[Back to top](<#table-of-contents>)
 
 # Agile Workflow
 
-## Github Project Board
+## GitHub Project Board
 
-I used the Kanban project board in Github to build this API using Agile principles from the start. The user stories created are for a developer or superuser to follow and test throughout the build process. I created a Milestone for each app (model) that I created, which I used to mark out the individual sprints of the project, and within each milestone are the related developer user stories. 
+I used the Kanban project board in GitHub to help guide me when creating this API. I used Agile principles throughout from a developer/superuser standpoint to write the 12 EPICS and subsequent user stories for the backend portion of this project. Each user story belongs to one EPIC, as detailed in the Developer User Stories section above. I created one EPIC for each of the seven models in this backend project as well as five more that deal with initial environment set up, deployment, documentation and testing, searching and error pages. 
 
-Each user story has a level of prioritisation using the MoSCoW method and a number of User Story points to indicate the level of difficulty for that feature. 
+![GitHub Project Board](images/kanban-proj-board.png)
 
-When each feature was built and committed in GitPod, the commit message has been linked to the relevant User Story. 
+Each user story is prioritized using the MoSCow method, with each EPIC as a 'must have'.
 
-![GitHub Project Board](images/api-project-board.png)
-![GitHub User Stories](images/user-stories.png)
+![GitHub User Stories](images/MoSCoW-method.png)
 
-# Testing
+[Back to top](<#table-of-contents>)
 
-Please click [**_here_**](TESTING.md) to read more information about testing Happening API
+# Testing -- FINISH THIS SECTION
+
+<!-- Click [**here**](TESTING.md) for detailed information on the testing processes for the Iowa Summer Activities backend API. -->
 
 # Technologies Used
 
@@ -316,196 +318,154 @@ Please click [**_here_**](TESTING.md) to read more information about testing Hap
 
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the DRF backend framework.
 
-## Frameworks & Software
+## Frameworks, Libraries & Software
 
-* [Django Rest Framework](https://www.django-rest-framework.org/) - A framework for building web API's
-* [PEP8 Validation](https://pypi.org/project/pep8/) - pep8 is a tool to check your Python code against some of the style conventions in PEP 8.
-* [Github](https://github.com/) - Used to host the repository, store the commit history and manage the project board containing user stories and bug reports.
-* [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
-* [Cloudinary](https://cloudinary.com/) - A service that hosts image files in the project.
+* [Django Rest Framework](https://www.django-rest-framework.org/) - Framework used to build web APIs
+* [PEP8 Validation](https://pypi.org/project/pep8/) - A validation tool to check Python code against various style conventions in PEP 8.
+* [GitHub](https://github.com/) - Used to host this repository, store commit histories and manage the Kanban project board as a whole.
+* [Heroku](https://en.wikipedia.org/wiki/Heroku) - The cloud platform this project is deployed on.
+* [Cloudinary](https://cloudinary.com/) - An image hosting service used for this project.
+* [Pillow](https://python-pillow.org/) - Pillow is a Python Imaging Library that was used in the walkthrough project and in this backend API.
+* [Django Rest Auth](https://django-rest-auth.readthedocs.io/en/latest/#) - Used in this project to provide REST API endpoints for user authentication and registration. 
+* [Gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. Broadly compatible with various web frameworks, it is quick and easy to install.
+* [Psycopg2](https://pypi.org/project/psycopg2/) - PostgreSQL database adapter for the Python programming language used in this project.
 
-## Libraries
-
-The libraries used in this project are located in the requirements.txt file and have been documented below
-
-
-* [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI.
-* [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets.
-* [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
-* [dj-rest-auth](https://pypi.org/project/dj-rest-auth/) - Drop-in API endpoints for handling authentication securely in Django Rest Framework. Works especially well with SPAs (e.g React, Vue, Angular), and Mobile applications.
-* [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
-* [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
-* [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
-* [django-cors-headers](https://pypi.org/project/django-cors-headers/) - A Django App that adds Cross-Origin Resource Sharing (CORS) headers to responses. This allows in-browser requests to your Django application from other origins.
-* [django-filter](https://pypi.org/project/django-filter/) - Django-filter is a reusable Django application allowing users to declaratively add dynamic QuerySet filtering from URL parameters.
-* [django-taggit](https://pypi.org/project/django-taggit/) - Django-taggit a simpler approach to tagging with Django. Add "taggit" to your INSTALLED_APPS then just add a TaggableManager to your model and go:
-* [django-rest-framework](https://pypi.org/project/djangorestframework/) - web-browsable Web APIs.
-* [djangorestframework-simplejwt](https://pypi.org/project/djangorestframework-simplejwt/) - Simple JWT is a JSON Web Token authentication plugin for the Django REST Framework.
-* [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
-* [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
-* [pillow](https://pypi.org/project/Pillow/8.2.0/) - The Python Imaging Library adds image processing capabilities to your Python interpreter.
-* [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
-* [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
-* [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
-* [pytz](https://pypi.org/project/pytz/) - This is a set of Python packages to support use of the OpenID decentralized identity system in your application, update to Python 3
-* [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - P    rovides first-class OAuth library support for Requests.
-* [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
-
+[Back to top](<#table-of-contents>)
 
 # Deployment
 
-The project was deployed to [Heroku](https://www.heroku.com). To deploy, please follow the process below:
+The project was deployed to [Heroku](https://www.heroku.com). The deployment process is detailed below:
 
-1. To begin with we need to create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template) by following the link and then click 'Use this template'.
+1. To start, create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template). 
 
-2. Fill in the details for the new repository and then click 'Create Repository From Template'.
+2. Click 'Use this template' and ill in the details for the new repository. When that's done, click 'Create Repository From Template'.
 
-3. When the repository has been created, click on the 'Gitpod' button to open it in the GitPod Editor.
+3. Once the repository is created, click the green 'Gitpod' button to open the Gitpod workspace.
 
-4. Now it's time to install Django and the supporting libraries that are needed, using the following commands:
+4. Install necessary libraries like Django, Gunicorn, Psychopg2 and Cloudinary using these commands in the Gitpod terminal:
 
+* ```pip3 install 'django<4'```
 * ```pip3 install 'django<4' gunicorn```
 * ```pip3 install 'dj_database_url psycopg2```
 * ```pip3 install 'dj3-cloudinary-storage```
 
-5. When Django and the libraries are installed we need to create a requirements file.
+5. After these preliminary installations, create a requirements.txt file using the command below, which will create and add required libraries to the file:
 
-* ```pip3 freeze --local > requirements.txt``` - This will create and add required libraries to requirements.txt
-
-
-6. Now it's time to create the project.
-
-* ```django-admin startproject YOUR_PROJECT_NAME .``` - This will create the new project.
-
-7. When the project is created we can now create the applications. My project consists of the following apps; Profiles, Comments, Contact, Events, Followers, Going, Interested and Reviews.
-
-* ```python3 manage.py startapp APP_NAME``` - This will create an application
-
-8. We now need to add the applications to settings.py in the INSTALLED_APPS list.
-
-8. Now it is time to do our first migration and run the server to test that everything works as expected. This is done by writing the commands below.
-
-* ```python3 manage.py makemigrations``` - This will prepare the migrations
-* ```python3 manage.py migrate``` - This will migrate the changes
-* ```python3 manage.py runserver``` - This runs the server. To test it, click the open browser button that will be visible after the command is run.
-
-9. Now it is time to create our application on Heroku, attach a database, prepare our environment and settings.py file and setup the Cloudinary storage for our static and media files.
-
-* Once signed into your [Heroku](https://www.heroku.com/) account, click on the button labeled 'New' to create a new app. 
-
-10. Choose a unique app name, choose your region and click 'Create app".
+* ```pip3 freeze --local > requirements.txt```
 
 
-11. Next we need to connect an external PostgreSQL database to the app from [ElephantSQL](https://customer.elephantsql.com/login).  Once logged-into your ElephantSQL dashboard, you click 'Create New Instance' to create a new database. Give the database a: 
-* Name
-* Tiny Turtle Free Plan
-* Selected data center near you
+6. No, create the actual project using:
 
-and click 'Create Instance'. Return to your ElephantSQL Dashboard, and click into your new database instance. Copy the Database URL and head back to Heroku.
+* ```django-admin startproject project-name ``` 
 
-12. Back in your Heroku app settings, click on the 'Reveal Config Vars' button. Create a config variable called DATABASE_URL and paste in the URL you copied from ElephantSQL. This connects the database into the app. 
+7. After the project has been created, you can create each app. The current project includes: Profiles, Posts, Comments, Likes, Contact, Followers, and Reviews.
 
-13. Go back to GitPod and create a new env.py in the top level directory. Then add these rows.
+* ```python3 manage.py startapp appname```
 
-* ```import os``` - This imports the os library
-* ```os.environ["DATABASE_URL"]``` - This sets the environment variables.
-* ```os.environ["SECRET_KEY"]``` - Here you can choose whatever secret key you want.
+8. Add these apps to the settings.py file in the INSTALLED_APPS list.
 
-14. Back in the Heroku Config Vars settings, create another variable called SECRET_KEY and copy in the same secret key as you added into the env.py file. Don't forget to add this env.py file into the .gitignore file so that it isn't commited to GitHub for other users to find. 
+8. Migrate these new developments and run the server to ensure everything is working properly in the local environment. It's a good idea to start with a 'dry-run' migration to check for any typos or spelling errors. The command for this is:
+* ```python3 manage.py makemigrations --dry-run``` 
 
-15. Now we have to connect to our environment and settings.py file. In the settings.py, add the following code:
+  Then you can prepare the migrations
+* ```python3 manage.py makemigrations```
 
-```import os```
+  and migrate the changes:
+* ```python3 manage.py migrate```
 
-```import dj_database_url```
+  Now run the server by entering the command below. Click the 'open browser' button when it pops up to see the page in your local browser.
+* ```python manage.py runserver```
 
-```if os.path.isfile("env.py"):```
+9. Once the above steps are completed, you can create the Heroku app and link the GitHub repository.
 
-```import env```
+    Sign into your [Heroku account](https://www.heroku.com/), and click on 'New' at the top right-hand corner to create a new app.
 
-16. In the settings file, remove the insecure secret key and replace it with:
+10. Choose a unique app name, fill out the region and click on the 'Create app' button at the bottom.
+
+11. Next, connect an external PostgreSQL database to the app, using [ElephantSQL](https://customer.elephantsql.com/login). When you've logged in and are on the ElephantSQL dashboard, click 'Create New Instance' to create a new database. Complete the following:
+* Name the database
+* Select 'Tiny Turtle Free Plan'
+* Select data center near you
+
+  then click 'Create Instance'. Return to the ElephantSQL Dashboard and click your newly created database instance. Copy the Database URL and return to Heroku.
+
+12. In the Heroku app settings tab, click 'Reveal Config Vars'. Create a variable called DATABASE_URL and paste the URL you just copied from ElephantSQL. This will connect the database to the app. 
+
+13. Now, in the Gitpod environment, create an env.py file. In this file, add the following code to import the os library, set the environment variables, and keep a secret key, respectively:
+
+* ```import os```
+* ```os.environ["DATABASE_URL"]```
+* ```os.environ["SECRET_KEY"]```
+
+14. Return to the Heroku Config Vars settings and create a variable called SECRET_KEY. Copy and paste the secret key from the env.py file into this variable. 
+
+    REMEMBER: add the env.py file to the .gitignore file so none of this information is committed and pushed to GitHub and therefore, publicly accessible.
+
+15. Now, to connect to the environment and settings.py file, add the following code to the settings.py file:
+
+* ```import os```
+
+* ```import dj_database_url```
+
+* ```if os.path.isfile("env.py"):```
+
+* ```import env```
+
+16. Then, in the same file, remove the unsafe secret key and replace it with:
 ```SECRET_KEY = os.environ.get('SECRET_KEY')```
 
-17. Now we need to comment out the old database settings in the settings.py file (this is because we are going to use the postgres database instead of the sqlite3 database).
+17. Next, set up [Cloudinary](https://cloudinary.com/users/login) to be able to store static files (images, etc). Create or login to your account and copy the API variable from the Cloudinary dashboard.
 
-Instead, we add the link to the DATABASE_URL that we added to the environment file earlier.
-
-18. Save all your fields and migrate the changes again.
-
-```python3 manage.py migrate```
-
-19. Now we can set up [Cloudinary](https://cloudinary.com/users/login?RelayState=%2Fconsole%2Fmedia_library%2Ffolders%2Fhome%3Fconsole_customer_external_id%3Dc-95a4cb26371c4a6bc47e19b0f130a1#gsc.tab=0) (where we will store our static files). First you need to create a Cloudinary account and from the Cloudinary dashboard copy the API Environment Variable.
-
-20. Go back to the env.py file in Gitpod and add the Cloudinary url (it's very important that the url is correct):
+18. Add the Cloudinary URL to the gitpod environment in the env.py file, making sure it's correct:
 
 ```os.environ["CLOUDINARY_URL"] = "cloudinary://************************"```
 
-21. Let's head back to Heroku and add the Cloudinary url in Config Vars. We also need to add a disable collectstatic variable to get our first deployment to Heroku to work.
+19. In the Heroku app, add the Cloudinary URL to the Config Vars, along with the DISABLE_COLLECTSTATIC variable (equal to 1) to be able to properly deploy.
 
-22. Back in the settings.py file, we now need to add our Cloudinary Libraries we installed earlier to the INSTALLED_APPS list. Here it is important to get the order correct.
+20. In the gitpod environment, in the settings.py file, add the installed Cloudinary Libraries to the INSTALLED_APPS list. 
 
-* cloudinary_storage
-* django.contrib.staticfiles
-* cloudinary
+    REMEMBER to put them in this order: 
 
-23. For Django to be able to understand how to use and where to store static files we need to add some extra rows to the settings.py file.
+    * cloudinary_storage
+    * django.contrib.staticfiles
+    * cloudinary
 
+21. Add the Heroku app and localhost to the ALLOWED_HOSTS list in the settings.py file.
 
-24. To be able to get the application to work through Heroku we also need to add our Heroku app and localhost to the ALLOWED_HOSTS list:
+22. Now, create the Procfile directory in the Gitpod environment. Add the following line:
 
-```ALLOWED_HOSTS = ['happening-api-kelz.herokuapp.com', 'localhost']```
+* ```web: gunicorn proj_name.wsgi?```
 
-25. Now we just need to create the basic file directory in Gitpod.
+23. Save the files, commit and push these changes to GitHub. 
 
-* Create a file called **Procfile* and add the line ```web: gunicorn PROJ_NAME.wsgi?``` to it.
+24. To deploy in Heroku, select the 'deploy' tab. Scroll down and select 'GitHub' to connect to. Search for your repository and connect them. Then scroll down to manual deployment and click 'deploy branch'.  it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
 
-26. Now you can save all the files and prepare for the first commit and push to Github by writing the lines below.
+    The deployed Heroku API can be found [here](https://activities-backend-api-a2cb7e703660.herokuapp.com/).
+    The backend GitHub repository can be found [here](https://github.com/Kaylaesmith1/activities-backend-api).
 
-* ```git add .```
-* ```git commit -m "Deployment Commit```
-* ```git push```
+[Back to top](<#table-of-contents>)
 
-27. Now it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
-
-28. Scroll down to the manual deployment section and click 'Deploy Branch'. Hopefully the deployment is successful!
-
-
-The live link to the Happening API on Heroku can be found [here](https://happening-api-kelz.herokuapp.com/). And the Github repository can be found [here](https://github.com/quiltingcode/events-backend-api).
-
-[Back to top](<#table-of-content>)
-
-## How To Fork The Repository On GitHub
-
-It is possible to make an independent copy of a GitHub Repository by forking the GitHub account. The copy can then be viewed and it is also possible to make changes in the copy without affecting the original repository. To fork the repository, follow these steps:
-
-1. After logging in to GitHub, locate the repository. On the top right side of the page there is a 'Fork' button. Click on the button to create a copy of the original repository.
-
-
-[Back to top](<#table-of-content>)
+## Forking this repository on GitHub
+You can create an independent copy of this repository by forking the original. Within the copy you can make changes and work without affecting the original. To fork this repository, complete the following: 
+- Locate the repository at this link [activities-backend-api](https://github.com/Kaylaesmith1/activities-backend-api).
+- At the top of the repository, on the right side of the page, select "Fork" from the buttons available, which creates a copy of the repository.
 
 ## Cloning And Setting Up This Project
 
-To clone and set up this project you need to follow the steps below.
+To clone this repository follow the steps below: 
 
-1. When you are in the repository, find the code tab and click it.
-2. To the left of the green GitPod button, press the 'code' menu. There you will find a link to the repository. Click on the clipboard icon to copy the URL.
-3. Use an IDE and open Git Bash. Change directory to the location where you want the cloned directory to be made.
-4. Type 'git clone', and then paste the URL that you copied from GitHub. Press enter and a local clone will be created.
+1. Locate the repository for the [activities-backend-api](https://github.com/Kaylaesmith1/activities-backend-api). 
+2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the preferred cloning option, and then copy the link provided. 
+3. Open **Terminal**.
+4. In Terminal, change the current working directory to the desired location of the cloned directory.
+5. Type **'git clone'**, and then paste the URL previously copied from GitHub. 
+6. Type **'Enter'** to create the local clone. 
 
-5. To be able to get the project to work you need to install the requirements. This can be done by using the command below:
-
-* ```pip3 install -r requirements.txt``` - This command downloads and installs all required dependencies that is stated in the requirements file.
-
-6. The next step is to set up the environment file so that the project knows what variables that needs to be used for it to work. Environment variables are usually hidden due to sensitive information. It's very important that you don't push the env.py file to Github (this can be secured by adding env.py to the .gitignore-file). The variables that are declared in the env.py file needs to be added to the Heroku config vars. Don't forget to do necessary migrations before trying to run the server.
-
-* ```python3 manage.py migrate``` - This will do the necessary migrations.
-* ```python3 manage.py runserver``` - If everything i setup correctly the project is now live locally.
 
 # Credits
 
-* The default profile pic image was taken from [VectorStock](https://www.vectorstock.com/royalty-free-vectors/default-profile-vectors)
-* I watched a tutorial video on [YouTube](https://www.youtube.com/watch?v=D3iPIoTL9sk
-https://codingpr.com/star-rating-blog/
-) to learn about implementing a rating system into my reviews app
-* I learned about [Django Taggit](https://django-taggit.readthedocs.io/en/latest/api.html) before implementing this library into my events app
-* I also read this [dev.to](https://dev.to/tikam02/how-to-implement-django-search-field-and-tags-keywords-286a) blog on how to use tag fields effectively in a keyword search bar -->
+* [Lucid chart](https://lucid.app/documents#/documents?folder_id=recent) was used to create the diagram showing the database layout and relationships.
+* To add models to the Django backend, Martin from tutoring was helpful in sending [this documentation](https://codinggear.blog/how-to-register-model-in-django-admin/?utm_content=cmp-true)
+* Code Institute tutors were helpful on various occasions to walk me through troubleshooting when I had issues with getting the backend up and running. Thanks, tutors!
+
+[Back to top](<#table-of-contents>)
