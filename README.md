@@ -1,6 +1,6 @@
 # README file currently being updated / edited
 
-# **Iowa Summer Activities (backend API)**
+# **Iowa Summer Activities (Backend API)**
 
 ## Table of Contents
 
@@ -146,197 +146,105 @@ As the developer, I can create status error pages so users will know if there is
 - As the developer I can create a 404 - Page Not Found error message so that I know if my url doesn't exist in the backend API.
 
 
-<!-- # Database Designs -- START HERE
+ # Database Designs
 
 ## Models
 
-I have created the following models for the Happening Backend API:
- * User (slightly customized from the Django standard User model)
- * Profile (automatically created on User creation)
- * Event (A post publicising a future event)
- * Comment (To make a comment on an event while it's being promoted)
- * Interested (To indicate if a user thinks the event sounds good)
- * Going (To indicate if the user plans to attend the event)
- * Follow (For users to follow event hosts)
- * Review (For users to rate and add a review comment post event)
- * Contact (To send a message to the email address in a profile)
+I created the following models for the Iowa Summer Activities Backend API, based on the Moments walkthrough project:
+ * Profile (Shows user information for created profiles) 
+ * Posts (A social media-type post providing information for an activity) 
+ * Comments (Enables a user to write a comment for a posted activity)
+ * Followers (Allows users to follow (and unfollow) other profiles)
+ * Likes (Users can like (and unlike) activity posts)
 
-The relationships between all of these models is summarized in the followed entity relationship diagram:
-![erd](https://res.cloudinary.com/dkolsfjkx/image/upload/v1685955455/events-erd2_hejg6i.jpg)
+ The two models below were created as customs models to meet assesmment criteria for the PP5 Advanced Frontend project:
+ * Review (For users to rate an activity using a five-star system and leave a review comment for that activity)
+ * Contact (For users send a message to the site manager)
+
+# PUT DB DIAGRAM HERE
+<!-- The relationships between all of these models is summarized in the followed entity relationship diagram:
+![erd](https://res.cloudinary.com/dkolsfjkx/image/upload/v1685955455/events-erd2_hejg6i.jpg) -->
 
 # Features
 
 ## Homepage
 
-When you first enter the API site, you are directed to the Root Route hompage, with a message welcoming you to the API for Happening. 
+When you first open the backend API site, you're taken to the Root Route homepage, where you'll see a welcome message for the Iowa Summer Activities API.  
 
-![homepage](images/homepage.png)
+![API Homepage](images/homepage.png)
 
 ## Profile Data
 
-Within the Profile List section, a user can view a list of all profiles in the API. Create functionality is not enabled, as the process is done automatically through the user registration process. 
+In the Profiles section, all profiles created in the API are listed, in descending order of creation.
 
-![Profile List](images/profile-page.png)
+![Profile List](images/profiles.png)
 
-Besides the fields created in the Profile model (as shown in the ERD Diagram), through the serializer, I also added the following fields to the JSON data:
+The following fields were added through the profiles serializer to collect further data for the features in the project:
 
 * is_owner
 * following_id
-* events_count
+* posts_count
 * followers_count
 * following_count
-* going_count
 
-I have set up ordering for the profile list, and selected the following parameters to sort the profiles by:
-
-* events_count
-* followers_count
-* following_count
-* going_count
-* owner__following_created_at
-* owner__followed_created_at
-
-I have set up two field filters on the events list to filter as follows:
-
-1. Profiles that are following the logged-in user
-2. Profiles that are being followed by the logged-in user
-
-If the user logs in, and views the detail of their own profile, additional Update and Delete functionality becomes available. Below the profile data, a pre-populated form is available to edit the profile model fields. At the top of the screen, a delete button is available to delete the profile from the API.
+If the superuser logs in, they can view details of profile information and update or delete it. When editing data, a prepopulated form appears for that user. The save button will save this updated information to the API, while the delete button will remove the information from the API.
 
 ![Profile Edit Form](images/profile-edit.png)
 
-## Events Data
+## Posts Data
 
-Within the Events List section, a user can view a list of all events in the API. 
+On the Posts List page, all posts created are shown in the API, accompanied by the data, listed below.
 
-![Events List](images/events-page.png)
+![Posts List](images/posts.png)
 
-Besides the fields created in the Event model (as shown in the ERD Diagram), through the serializer, I also added the following fields to the JSON data:
+The following fields were added through the profiles serializer to collect further data for the features in the project:
 
 * is_owner
 * profile_id
 * profile_image
-* image_filter
-* interested_id
-* going_id
+* like_id
 * review_id
-* comments_count
-* interested_count
-* going_count
-* review_count
-* average_rating
+* likes_count
 
-I have set up ordering for the events list, and selected the following parameters to sort the events by:
 
-* comments_count
-* interested_count
-* going_count
-* review_count
-* average_rating
-* interested_created_at
-* going_created_at
-* event_date
+As a logged-in superuser from the backend, you can create a post for an activity or event by filling out the fields of the form seen below and saving it. This will add an event to the backend API that will also be visible from the frontend website.
 
-I have set up a search function whereby the full events list can be searched on by the event owner, title, event data, or event tags.
+![Create a post of an activity](images/create-post-activity.png)
 
-I have set up six field filters on the events list to filter as follows:
+The superuser can also edit the details of or delete any event from the backend API. These changes will be visible from the frontend website as well as the backend.
 
-1. Events whose owners the logged-in user is following - This will be the front end 'Feed' page
-
-2. Events which the logged-in user has posted interested in - This will combine with filter 3 to be the front end 'My Events' page 
-
-3. Events which the logged-in user has posted going to - This will combine with filter 2 to be the front end 'My Events' page
-
-4. All events posted by user - This will be used in the 'Profile' page
-
-5. All events in one category - This filter will be visible on all front end Event List pages
-
-6. Events which are less than or equal to a number - This is used for the reviews page to filter out all events with an event_date in the future. 
-
-If the user logs in, a form becomes visible under the events list to create a new event. 
-
-![Create an Event](images/create-event-form.png)
-
-Once logged-in, if the user views the details of a single event which they created additional Update and Delete functionality becomes available. Below the event data, a pre-populated form is available to edit the event. At the top of the screen, a delete button is available to delete the event from the API.
-
-![Event Edit Form](images/event-edit.png)
+![Event activity form](images/edit-post-activity.png)
 
 ## Comments Data
 
-Within the Comments List section, a user can view a list of all comments in the API. 
+In the Comments section, you can see a list of all comments in the API.
 
-![Comments List](images/comments-page.png)
+![Comments List](images/comments.png)
 
-Besides the fields created in the Comment model (as shown in the ERD Diagram), through the serializer, I also added the following fields to the JSON data:
+Once logged in as a superuser, you can fill out a form to create a new comment on an activity. From the backend, you can choose the owner, event and write your text. This will be saved to the API and will also show up on the frontend.
 
-* is_owner
-* profile_id
-* profile_image
+![Create a Comment](images/create-comment.png)
 
-I also set up one field filter to filter the comments by the event they are commenting on.
+The superuser can also edit a comment from the backend by clicking the comment, changing the pre-populated fields and saving the form. This data will be updated in the API and on the frontend page. Clicking the delete button will erase the information from the API and from the frontend.
 
-If the user logs in, a form becomes visible under the comments list to create a new comment. The event they want to comment on can be selected from the dropdown, and a comment text must be entered to post the comment successfully.
-
-![Create a Comment](images/create-comment-form.png)
-
-Once logged-in, if the user views the details of a single comment which they created additional Update and Delete functionality becomes available. Below the comment data, a pre-populated form is available to edit the comment. At the top of the screen, a delete button is available to delete the comment from the API.
-
-![Comment Edit Form](images/comment-edit.png)
-
-## Interested Data
-
-Within the Interested List section, a user can view a list of all interested posts in the API. 
-
-![Interested List](images/interested-page.png)
-
-If the user logs in, a form becomes visible under the interested list to create a new interested post. The event they want to be interested in can be selected from the dropdown, to link the interest with the event.
-
-![Create an Interested Post](images/create-interested-form.png)
-
-If a user tries to post interest to the same event twice, they see an error message saying that they are already interested in the selected event, and the duplicate interested post is not created.
-
-![Create Duplicate Interested](images/interested-no-duplicates.png)
-
-Once logged-in, if the user views the details of a single interested post which they created additional Delete functionality becomes available. It is not possible to Edit an interested post.
-
-![Delete an Interested Post](images/interested-delete.png)
-
-## Going Data
-
-Within the Going List section, a user can view a list of all going posts in the API. 
-
-![Going List](images/going-page.png)
-
-If the user logs in, a form becomes visible under the going list to create a new going post. The event they want to be going to can be selected from the dropdown, to link the going post with the event.
-
-![Create a Going Post](images/create-going-form.png)
-
-If a user tries to post going to the same event twice, they see an error message saying that they are already going to the selected event, and the duplicate going post is not created.
-
-![Create Duplicate Going](images/going-no-duplicates.png)
-
-Once logged-in, if the user views the details of a single going post which they created additional Delete functionality becomes available. It is not possible to Edit a going post.
-
-![Delete a Going Post](images/going-delete.png)
+![Edit Comment Form](images/edit-comment.png)
 
 ## Followers Data
 
-Within the Follower List section, a user can view a list of all follower posts in the API. 
+On the Followers page, all followers of profiles are shown.
 
-![Follower List](images/follower-page.png)
+![Follower List](images/followers.png)
 
-If the user logs in, a form becomes visible under the follower list to create a new follower post. The user they want to follow can be selected from the dropdown, to link the follower post with another user profile.
+After logging in, the superuser can fill out a form with the 'owner' and 'followed' fields to have a user follow another. 
+![Create a Follower Post](images/create-followers.png)
 
-![Create a Follower Post](images/create-follower-form.png)
+The same superuser can edit the form to change the 'owner' and 'followed' fields. the owner / follower combination can only be used one time, otherwise an error message is shown alerting that the owner is already following the other user.
 
-If a user tries to follow the same profile twice, they see an error message saying that they are already following the selected profile, and the duplicate follow post is not created.
+Clicking the delete button deletes this owner-follower combination from the database.
 
-![Create Duplicate Follower](images/follower-no-duplicates.png)
+![Edit Followers](images/edit-followers.png)
 
-Once logged-in, if the user views the details of a single follower post which they created additional Delete functionality becomes available. It is not possible to Edit a follower post.
-
-![Delete a Follower Post](images/follower-delete.png)
-
+<!-- # START HERE
 ## Reviews Data
 
 Within the Review List section, a user can view a list of all reviews in the API. 
