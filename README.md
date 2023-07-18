@@ -1,6 +1,6 @@
 # **Iowa Summer Activities (Backend API)**
 
-## [Table of Contents](#table-of-contents)
+# [Table of Contents](#table-of-contents)
 
 - [**Project Overview**](#project-overview)
   - [Objective](#objective)
@@ -9,7 +9,6 @@
   - [Developer User Stories](#developer-user-stories)
 - [Database Designs](#database-designs)
   - [Models](#models)
-<!-- - [PUT DB DIAGRAM HERE](#put-db-diagram-here) -->
 - [Features](#features)
   - [Homepage](#homepage)
   - [Profile Data](#profile-data)
@@ -21,12 +20,12 @@
   - [Likes Data](#likes-data)
 - [Agile Workflow](#agile-workflow)
   - [GitHub Project Board](#github-project-board)
-- [Testing](#testing----finish-this-section)
+- [Testing](#testing)
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
   - [Frameworks, Libraries & Software](#frameworks-libraries--software)
 - [Deployment](#deployment)
-  - [How to fork this repository on GitHub](#how-to-fork-this-repository-on-github)
+  - [Forking this repository on GitHub](#forking-this-repository-on-github)
   - [Cloning And Setting Up This Project](#cloning-and-setting-up-this-project)
 - [Credits](#credits)
 
@@ -163,10 +162,6 @@ I created the following models for the Iowa Summer Activities Backend API, based
  The two models below were created as customs models to meet assessmment criteria for the PP5 Advanced Frontend project:
  * Review (For users to rate an activity using a five-star system and leave a review comment for that activity)
  * Contact (For users send a message to the site manager)
-
-# PUT DB DIAGRAM HERE
-<!-- The relationships between all of these models is summarized in the followed entity relationship diagram:
-![erd](https://res.cloudinary.com/dkolsfjkx/image/upload/v1685955455/events-erd2_hejg6i.jpg) -->
 
 [Back to top](<#table-of-contents>)
 
