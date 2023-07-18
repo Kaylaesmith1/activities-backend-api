@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Profile
 from followers.models import Follower
 
+
 class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -27,5 +28,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
-            'content', 'image', 'is_owner', 'following_id', 'following_count', 'followers_count', 'posts_count'
+            'content', 'image', 'is_owner', 'following_id', 'following_count',
+            'followers_count', 'posts_count'
         ]

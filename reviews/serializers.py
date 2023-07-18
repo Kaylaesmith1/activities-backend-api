@@ -4,7 +4,6 @@ from .models import Review
 from django.db import IntegrityError
 
 
-
 class ReviewSerializer(serializers.ModelSerializer):
     """
     Serializer for Review model
@@ -15,7 +14,6 @@ class ReviewSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
-
 
     def get_is_owner(self, obj):
         request = self.context['request']

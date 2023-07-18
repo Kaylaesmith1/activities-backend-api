@@ -20,7 +20,8 @@ if os.path.exists('env.py'):
     import env
 
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL' : os.environ.get('CLOUDINARY_URL')
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+
 }
 # Where images and media will be stored
 MEDIA_URL = '/media/'
@@ -54,7 +55,7 @@ JWT_AUTH_SAMESITE = 'None'
 
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'activities_backend_api.serializers.CurrentUserSerializer'
+    'USER_DETAILS_SERIALIZER': 'activities_backend_api.serializers.CurrentUserSerializer'  # noqa
 }
 
 # Quick-start development settings - unsuitable for production
@@ -67,7 +68,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = 'DEBUG' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io']  # noqa
 # ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
 
 # Application definition
@@ -115,11 +116,11 @@ MIDDLEWARE = [
 
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)  # noqa
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
-    
+
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -164,16 +165,16 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',  # noqa
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',  # noqa
     },
 ]
 

@@ -1,8 +1,8 @@
-# **Iowa Summer Activities API**
+Return to [README](README.md)
 
-# Testing - IN PROGRESS
+# **Iowa Summer Activities API | Testing**
 
-<!-- LOOK AT GARDEN API AND COFFEE WEBSITE TESTING.
+
 ## Table of Contents
 
 * [**Testing**](<#testing>)
@@ -15,89 +15,202 @@
 
 ### PEP8
 
-The Happening API has been passed through the internal PEP8 validation tests which I installed into GitPod. The method I used to do this was as per the Slack Article written by kevin_ci on the 28th September 2022 in #announcements, since the PEP8online website no longer works:
+Python codes used throughout the Iowa Summer Activities API were validated using [CI Python Linter](https://pep8ci.herokuapp.com/). 
 
-1. Run the command 'pip3 install pycodestyle'
-2. Press Ctrl+Shift+P
-3. Type 'linter' into the search field
-4. Select 'Python: Select Linter
-5. Select 'pycodestyle' from the list
-6. Select the 3 lines menu in the top left hand corner. Select 'View' and then 'Problems'. 
-6. PEP8 errors are now displayed in a list as well as being underlined in red in the central editor window.
+The most common errors that arose were 'line too long'. This was rectified by adding '  # noqa' to the lines of code in question, which fixed this error.  Please see the results of each component below.
 
-### Events_api files
+### activities_backend_api files
 
-* permissions.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* views.py - No problems or warnings found
-* models.py - No problems or warnings found
-* urls.py - No problems or warnings found
+<details>
+  <summary>permissions.py - No errors</summary> 
 
-### Comments App py files
+![Python Validation](images/testing/permissions.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+![Python Validation](images/testing/serializers.png)
+</details>
+<details>
+  <summary>settings.py - No errors</summary> 
 
-### Contact App py files
+![Python Validation](images/testing/settings.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+![Python Validation](images/testing/urls.png)
+</details> 
+<details>
+  <summary>views.py - No errors</summary> 
 
-### Events App py files
+![Python Validation](images/testing/views.png)
+</details>
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
 
-### Followers App py files
+### Comments App files
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+<details>
+  <summary>models.py - No errors</summary> 
 
-### Going App py files
+![Python Validation](images/testing/comments-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+![Python Validation](images/testing/comments-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
 
-### Interested App py files
+![Python Validation](images/testing/comments-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+![Python Validation](images/testing/comments-views.png)
+</details> 
 
-### Profiles App py files
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+### Contact App files
 
-### Reviews App py files
+<details>
+  <summary>models.py - No errors</summary> 
 
-* models.py - No problems or warnings found
-* serializers.py - No problems or warnings found
-* tests.py - No problems or warnings found
-* urls.py - No problems or warnings found
-* views.py - No problems or warnings found
+![Python Validation](images/testing/contact-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
 
-## Automated Testing
+![Python Validation](images/testing/contact-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/contact-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/contact-views.png)
+</details> 
+
+### Followers App files
+
+<details>
+  <summary>models.py - No errors</summary> 
+
+![Python Validation](images/testing/followers-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
+
+![Python Validation](images/testing/followers-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/followers-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/followers-views.png)
+</details> 
+
+### Likes App files
+
+<details>
+  <summary>models.py - No errors</summary> 
+
+![Python Validation](images/testing/likes-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
+
+![Python Validation](images/testing/likes-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/likes-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/likes-views.png)
+</details> 
+
+### Posts App files
+
+<details>
+  <summary>models.py - No errors</summary> 
+
+![Python Validation](images/testing/posts-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
+
+![Python Validation](images/testing/posts-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/posts-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/posts-views.png)
+</details>
+
+### Profiles App files
+
+<details>
+  <summary>models.py - No errors</summary> 
+
+![Python Validation](images/testing/profiles-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
+
+![Python Validation](images/testing/profiles-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/profiles-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/profiles-views.png)
+</details>
+
+### Reviews App files
+
+<details>
+  <summary>models.py - No errors</summary> 
+
+![Python Validation](images/testing/reviews-models.png)
+</details>
+<details>
+  <summary>serializers.py - No errors</summary> 
+
+![Python Validation](images/testing/reviews-serializers.png)
+</details>
+<details>
+  <summary>urls.py - No errors</summary> 
+
+![Python Validation](images/testing/reviews-urls.png)
+</details>
+<details>
+  <summary>views.py - No errors</summary> 
+
+![Python Validation](images/testing/reviews-views.png)
+</details>
+
+## Automated Testing - START HERE
 
 The following automatic tests have been written into the Happening API, in order to cover all the user story scenarios. These are the tests that were created: 
 
@@ -271,4 +384,4 @@ As well as the automatic tests which can be found in each app's testing.py file,
 
 ![Contact Test Fail](images/fail_create_contact_test.png)
 
-Please click [**_here_**](README.md) to return to the Happening API README file. -->
+Please click [**_here_**](README.md) to return to the Happening API README file.

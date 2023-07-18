@@ -2,7 +2,6 @@ from rest_framework import generics, permissions, filters
 from activities_backend_api.permissions import IsOwnerOrReadOnly
 from .models import Review
 from .serializers import ReviewSerializer, ReviewDetailSerializer
-# from django.db.models import Count, Avg
 from django_filters.rest_framework import DjangoFilterBackend
 
 

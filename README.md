@@ -9,7 +9,7 @@
   - [Developer User Stories](#developer-user-stories)
 - [Database Designs](#database-designs)
   - [Models](#models)
-- [PUT DB DIAGRAM HERE](#put-db-diagram-here)
+<!-- - [PUT DB DIAGRAM HERE](#put-db-diagram-here) -->
 - [Features](#features)
   - [Homepage](#homepage)
   - [Profile Data](#profile-data)

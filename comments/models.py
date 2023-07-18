@@ -4,7 +4,7 @@ from posts.models import Post
 
 
 class Comment(models.Model):
-    """
+    """x
     Comment model, related to User and Post
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
