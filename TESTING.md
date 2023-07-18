@@ -210,9 +210,9 @@ The most common errors that arose were 'line too long'. This was rectified by ad
 ![Python Validation](images/testing/reviews-views.png)
 </details>
 
-## Automated Testing - START HERE
+## Automated Testing
 
-The following automatic tests have been written into the Happening API, in order to cover all the user story scenarios. These are the tests that were created: 
+<!-- The following automatic tests have been written into the Happening API, in order to cover all the user story scenarios. These are the tests that were created: 
 
 ![Automatic Test Summary](images/test-summary.png)
 
@@ -384,4 +384,4 @@ As well as the automatic tests which can be found in each app's testing.py file,
 
 ![Contact Test Fail](images/fail_create_contact_test.png)
 
-Please click [**_here_**](README.md) to return to the Happening API README file.
+Please click [**_here_**](README.md) to return to the Happening API README file. -->

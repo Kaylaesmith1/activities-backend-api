@@ -21,7 +21,7 @@
   - [Likes Data](#likes-data)
 - [Agile Workflow](#agile-workflow)
   - [GitHub Project Board](#github-project-board)
-- [Testing -- FINISH THIS SECTION](#testing----finish-this-section)
+- [Testing](#testing----finish-this-section)
 - [Technologies Used](#technologies-used)
   - [Languages](#languages)
   - [Frameworks, Libraries & Software](#frameworks-libraries--software)
@@ -308,9 +308,8 @@ Each user story is prioritized using the MoSCow method, with each EPIC as a 'mus
 
 [Back to top](<#table-of-contents>)
 
-# Testing -- FINISH THIS SECTION
-
-<!-- Click [**here**](TESTING.md) for detailed information on the testing processes for the Iowa Summer Activities backend API. -->
+# Testing
+Click [**here**](TESTING.md) for detailed information on the testing processes completed for the Iowa Summer Activities backend API.
 
 # Technologies Used
 
