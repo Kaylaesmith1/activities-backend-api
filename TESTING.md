@@ -7,9 +7,8 @@ Return to [README](README.md)
 
 * [**Testing**](<#testing>)
     * [Code Validation](<#code-validation>)
-    * [Automatic Testing](<#automatic-testing>)
     * [Manual Testing](<#manual-testing>)
-    * [Known Bugs](<#known-bugs>)
+    * [Bugs](<#known-bugs>)
 
 ## Code Validation 
 
@@ -19,7 +18,7 @@ Python codes used throughout the Iowa Summer Activities API were validated using
 
 The most common errors that arose were 'line too long'. This was rectified by adding '  # noqa' to the lines of code in question, which fixed this error.  Please see the results of each component below.
 
-### activities_backend_api files
+### Activities_backend_api files
 
 <details>
   <summary>permissions.py - No errors</summary> 
@@ -95,6 +94,9 @@ The most common errors that arose were 'line too long'. This was rectified by ad
 ![Python Validation](images/testing/contact-views.png)
 </details> 
 
+
+#### [Back to top](<#table-of-contents>)
+
 ### Followers App files
 
 <details>
@@ -164,6 +166,8 @@ The most common errors that arose were 'line too long'. This was rectified by ad
 ![Python Validation](images/testing/posts-views.png)
 </details>
 
+#### [Back to top](<#table-of-contents>)
+
 ### Profiles App files
 
 <details>
@@ -210,79 +214,48 @@ The most common errors that arose were 'line too long'. This was rectified by ad
 ![Python Validation](images/testing/reviews-views.png)
 </details>
 
+#### [Back to top](<#table-of-contents>)
+
+
 ## Manual Testing
+I started by ensuring each url path worked properly by running the backend server and manually entering the urls (following the url pathways I have in the activities_backend_api urls.py file). All opened without error.
 
-<!--As well as the automatic tests which can be found in each app's testing.py file, I carried out the following additional manual tests:
+I then checked CRUD functionality worked properly through the API by logging in as a superuser and testing these features. CRUD functionality should be available for all seven apps: Comments, Contact, Followers, Likes, Posts, Profiles and Reviews.
 
-| Status | **Profiles**
-|:-------:|:--------|
-| &check; | Profile List can be ordered by events_count in ascending order
-| &check; | Profile List can be ordered by events_count in descending order
-| &check; | Profile List can be ordered by followers_count in ascending order
-| &check; | Profile List can be ordered by followers_count in descending order
-| &check; | Profile List can be ordered by following_count in ascending order
-| &check; | Profile List can be ordered by following_count in descending order
-| &check; | Profile List can be ordered by going_count in ascending order
-| &check; | Profile List can be ordered by going_count in descending order
-| &check; | Profile List can be ordered by owner__following__created_at in ascending order
-| &check; | Profile List can be ordered by owner__following__created_at in descending order
-| &check; | Profile List can be ordered by owner__followed__created_at in ascending order
-| &check; | Profile List can be ordered by owner__followed__created_at in descending order
-| &check; | Profile List can be filtered by owner__following__followed__profile
-| &check; | Profile List can be filtered by owner__followed__owner__profile
+Once logged in as the superuser, I went through each of the aforementioned apps by url to see if I was able to: create an item, edit an item and delete an item, which I was able to do on all accounts.
 
-| Status | **Events**
-|:-------:|:--------|
-| &check; | Event List can be ordered by comments_count in ascending order
-| &check; | Event List can be ordered by comments_count in descending order
-| &check; | Event List can be ordered by interested_count in ascending order
-| &check; | Event List can be ordered by interested_count in descending order
-| &check; | Event List can be ordered by going_count in ascending order
-| &check; | Event List can be ordered by going_count in descending order
-| &check; | Event List can be ordered by review_count in ascending order
-| &check; | Event List can be ordered by review_count in descending order
-| &check; | Event List can be ordered by average_rating in ascending order
-| &check; | Event List can be ordered by average_rating in descending order
-| &check; | Event List can be ordered by interested__created_at in ascending order
-| &check; | Event List can be ordered by interested__created_at in descending order
-| &check; | Event List can be ordered by going__created_at in ascending order
-| &check; | Event List can be ordered by going__created_at in descending order
-| &check; | Event List can be ordered by event_date in ascending order
-| &check; | Event List can be ordered by event_date in descending order
-| &check; | Event List can be searched on by owner 'admin'
-| &check; | Event List can be searched on by title 'event'
-| &check; | Event List can be searched on by tag 'sport'
-| &check; | Event List can be searched on by event_date '18'
-| &check; | Event List can be searched on by event_date '04' for all April events
-| &check; | Event List can be filtered by owner__followed__owner__profile
-| &check; | Event List can be filtered by interested__owner__profile
-| &check; | Event List can be filtered by going__owner__profile
-| &check; | Event List can be filtered by owner__profile
-| &check; | Event List can be filtered by category
+I performed manual testing using the Django Rest Framework admin site  throughout the development of this project as a whole. Furthermore, I did manual testing at various steps on the Iowa Summer Activities frontend website, which will be discussed in depth in the TESTING.md file in the frontend documentation.
 
-| Status | **Comments**
-|:-------:|:--------|
-| &check; | Comment List can be filtered by event
+All API endpoints in this portion of the project pass manual testing by posting, retrieving, updating and deleting data, both through the frontend website as well as through the Django rest framework admin site. 
 
-| Status | **Reviews**
-|:-------:|:--------|
-| &check; | Review List can be filtered by event
-
-| Status | **Contact**
-|:-------:|:--------|
-| &check; | Logged in user can create a contact message
+## Resolved Bug
 
 
-## Known Bugs
+1. <details>
+    <summary>Contact form error</summary> 
 
-### Resolved
+    ![Contact form error](images/bugs/contact-form-error.png)
+    </details>
 
-1. In my first project inception mentor meeting, I asked about what kind of field a 'Tags' model field would be, and whether it could just be a standard CharField. My mentor said that keywords should be stored in an array, so after further investigation I installed the Django Taggit Manager package to create an automatic array of words the user inputs into the events form 'tags' field. For some reason, however, despite using the blank=True attribute as per the Taggit docs, the API still requires this field to be filled in in order to sucessfully create a new event. I decided that this was not the end of the world and after a lot of research I left it as a required field. When I came to testing, my events tests were failing since I had changed over to Taggit, and so I had to amend the tests where an event is created to include a tags field as well as the title in order for the tests to pass. 
+    In early development of the Contact model, the form was not posting correctly to the backend API. After troubleshooting on my own and speaking with someone from tutoring, I was reminded I needed to migrate new changes to the model and deploy the backend again. This suggestion solved the problem, errors in the console disappeared and my information from the contact form was posted to the backend correctly. 
 
-2. While testing the followers app, the test 'can_view_follower_list' kept failing and I couldn't understand why. I tried using the model field names for owner and followed but this didn't work. I tried using the related field names but this didn't work either. In the end, I realised while trying to replicate the process in the local server, the URL for Profile List was different. It was missing the last '/' so I amended this in the urls.py file and all the tests passed after this. 
 
-3. Setting up the tests for the contact app, I can't seem to create the test correctly for 'logged_out_user_can_create_contact' and 'logged_in_user_can_create_contact'.  I don't seem to be setting up the create object response correctly, and I asked tutor support and they were unable to tell me how to do it correctly. I decided to do manual tests on this app until I could seek further advice, and on beginning the manual testing, I found that my permsisions were not set up correctly, and I could in fact create a contact whilst being logged out, hence why my automatic test was failing. I have now changed the permissions, and the automatic test for 'logged_out_user_cant_create_contact is now passing. 
+## Unresolved Bug
+There are no other unresolved bugs that I am aware of. Below is a description of the bug identified.
 
-![Contact Test Fail](images/fail_create_contact_test.png)
+1. <details>
+    <summary>POST / GET errors</summary> 
 
-Please click [**_here_**](README.md) to return to the Happening API README file. -->
+    ![Contact form error](images/bugs/post-get-errors.png)
+    </details>
+    
+    These errors show up periodically if the user is not logged in from the frontend website. I spoke to Sean from tutoring and he assured me that this is a known issue and it would not count against my assessment (see below). Furthermore, once the user is logged in the errors disappear, though a hard refresh might be needed.
+
+    <details>
+    <summary>Sean's response</summary> 
+
+    ![Contact form error](images/bugs/backend-error.png)
+    </details>
+
+
+    #### [Back to top](<#table-of-contents>)

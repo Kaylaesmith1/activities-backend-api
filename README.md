@@ -458,8 +458,14 @@ To clone this repository follow the steps below:
 
 # Credits
 
+* When brainstorming which custom models I wanted to include in my project that would be most related to an activities social platform, I came across another student's project, Happening, that had a similar context. The developer created a [Reviews section](https://github.com/quiltingcode/events-backend-api/tree/main/reviews) I thought would be a great addition to the Iowa Summer Activities website. My 'Reviews' app and star rating system is largely based on her custom model.
+
+* My 'Contact' app was developed using another student's repository as a guide. He also created a [Contact model](https://github.com/PEmbarach/drf-api-coffeeie/tree/main/contact), which I used to create my own for Iowa Summer Activities.
+
 * [Lucid chart](https://lucid.app/documents#/documents?folder_id=recent) was used to create the diagram showing the database layout and relationships.
-* To add models to the Django backend, Martin from tutoring was helpful in sending [this documentation](https://codinggear.blog/how-to-register-model-in-django-admin/?utm_content=cmp-true)
+
+* To add models to the Django backend, Martin from tutoring was helpful in sending [this documentation](https://codinggear.blog/how-to-register-model-in-django-admin/?utm_content=cmp-true).
+
 * Code Institute tutors were helpful on various occasions to walk me through troubleshooting when I had issues with getting the backend up and running. Thanks, tutors!
 
 [Back to top](<#table-of-contents>)
