@@ -249,7 +249,7 @@ There are no other unresolved bugs that I am aware of. Below is a description of
     ![Contact form error](images/bugs/post-get-errors.png)
     </details>
     
-    These errors show up periodically if the user is not logged in from the frontend website. I spoke to Sean from tutoring and he assured me that this is a known issue and it would not count against my assessment (see below). Furthermore, once the user is logged in the errors disappear, though a hard refresh might be needed.
+    These errors show up periodically if the user is not logged in from the frontend website. I spoke to Sean from tutoring and he assured me that this is a known issue and it would not count against my assessment, given that this error appears because the user is not logged in. Our cohort mentor, Gemma, reiterated what Sean explained. As such, once the user is logged in the errors disappear, though a hard refresh might be needed.
 
     <details>
     <summary>Sean's response</summary> 
