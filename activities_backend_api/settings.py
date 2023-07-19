@@ -68,7 +68,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # DEBUG = 'DEBUG' in os.environ
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io']  # noqa
+ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu101.gitpod.io', 'activities-backend-api-a2cb7e703660.herokuapp.com']  # noqa
 # ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
 
 # Application definition
