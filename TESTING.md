@@ -220,13 +220,13 @@ The most common errors that arose were 'line too long'. This was rectified by ad
 ## Manual Testing
 I started by ensuring each url path worked properly by running the backend server and manually entering the urls (following the url pathways I have in the activities_backend_api urls.py file). All opened without error.
 
-I then checked CRUD functionality worked properly through the API by logging in as a superuser and testing these features. CRUD functionality should be available for all seven apps: Comments, Contact, Followers, Likes, Posts, Profiles and Reviews.
+I then checked that CRUD functionality worked properly through the API by logging in as a superuser and testing these features. CRUD functionality should be available for all seven apps: Comments, Contact, Followers, Likes, Posts, Profiles and Reviews.
 
 Once logged in as the superuser, I went through each of the aforementioned apps by url to see if I was able to: create an item, edit an item and delete an item, which I was able to do on all accounts.
 
 I performed manual testing using the Django Rest Framework admin site  throughout the development of this project as a whole. Furthermore, I did manual testing at various steps on the Iowa Summer Activities frontend website, which will be discussed in depth in the TESTING.md file in the frontend documentation.
 
-All API endpoints in this portion of the project pass manual testing by posting, retrieving, updating and deleting data, both through the frontend website as well as through the Django rest framework admin site. 
+All API endpoints in this portion of the project pass manual testing by creating, retrieving, updating and deleting data, both through the frontend website as well as through the Django rest framework admin site. 
 
 ## Resolved Bug
 
@@ -237,7 +237,7 @@ All API endpoints in this portion of the project pass manual testing by posting,
     ![Contact form error](images/bugs/contact-form-error.png)
     </details>
 
-    In early development of the Contact model, the form was not posting correctly to the backend API. After troubleshooting on my own and speaking with someone from tutoring, I was reminded I needed to migrate new changes to the model and deploy the backend again. This suggestion solved the problem, errors in the console disappeared and my information from the contact form was posted to the backend correctly. 
+    In early development of the Contact model, the form was not posting correctly to the backend API. After troubleshooting on my own and speaking with someone from tutoring, I was reminded I needed to migrate any new changes to the model and deploy the backend again. This suggestion solved the problem, errors in the console disappeared and my information from the contact form was posted to the backend correctly. 
 
 
 ## Unresolved Bug

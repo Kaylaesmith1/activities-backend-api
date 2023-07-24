@@ -25,7 +25,7 @@
   - [Languages](#languages)
   - [Frameworks, Libraries & Software](#frameworks-libraries--software)
 - [Deployment](#deployment)
-  - [Forking this repository on GitHub](#forking-this-repository-on-github)
+  - [Forking This Repository on GitHub](#forking-this-repository-on-github)
   - [Cloning And Setting Up This Project](#cloning-and-setting-up-this-project)
 - [Credits](#credits)
 
@@ -33,11 +33,9 @@
 
 ## Objective
 
-This is a website designed to be a platform for (summer) activities where users can post events happening in Des Moines, Iowa or the surrounding areas to be able to better connect with neighbors and people sharing similar interests.
+This is a website designed to be a platform for activities where users can post events happening in Des Moines, Iowa or the surrounding areas to be able to better connect with neighbors and people sharing similar interests.
 
-The Iowa Summer Activities API provides a backend database to create, view, edit and delete information pertaining to the aforementioned events. From the database, users can upload information about an activity (picture, title, description / event info). Other users can then like or review and rate this activity; all users can post comments on an event.
-
-This API includes a search capacity to improve the user experience. Users can search, and therefore filter, by user or by keyword that appears somewhere in the event description or title.
+The Iowa Summer Activities API provides a backend database to create, view, edit and delete information pertaining to the summer events happening in Des Moines or around the state. From the database, the admin superuser can upload information about an activity (picture, title, description / event info), which users on the frontend can interact with. Registered, logged-in frontend users can then like or review and rate this activity; all users can post comments on an event. Furthermore, the backend superuser has access and control over all seven React components created for this project.
 
 ## Links to Deployed Project
 
@@ -48,7 +46,7 @@ This API includes a search capacity to improve the user experience. Users can se
 
 The Iowa Summer Activities project was largely modelled after the Moments walkthrough [drf-api](https://github.com/Code-Institute-Solutions/drf-api) that was completed as part of the Code Institute's Diploma in Fullstack Development program for the final project, incorporating React.
 
-To customize my project, I created two additional models: Reviews and Contact. The former allows logged-in users to review an event with a comment and 1-5 star rating, while the latter enables logged-in users to contact the Des Moines city officials in charge of the website and activity management.
+To customize my project, I created two additional models: Reviews and Contact. The former allows logged-in users to review an event with a comment and 0-5 star rating, while the latter enables logged-in users to contact the Des Moines city officials in charge of the website and activity management. It is important to note that the contact form messages will be posted _only_ to the backend API and will not be sent to a real email account.
 
 [Back to top](<#table-of-contents>)
 
@@ -58,10 +56,10 @@ As the developer, I can create a new project so that I can develop the website.
 
 #### User Stories
 - As the developer I will create a new repository on GitHub specifically for the backend so that I can maintain the API and the frontend of the project separate.
-- As the developer I will install Django, Cloudinary, Pillow, and the apps necessary so that the final project is fully functional in a local and eventually a live environment.
+- As the developer I will install Django, Cloudinary, Pillow, and the apps necessary so that the final project is fully functional in a local and, eventually, in a live environment.
 - As the developer I will create a superuser account so that I can implement and test features as an Admin user from the backend.
-- As the developer I will create an env.py file with secure variables to be housed in the .gitignore file so that I have secure information kept out of a public space.
-- As the developer I can test and ensure the project works locally so that when I push it to Heroku, I know it will be able to work in a live environment.
+- As the developer I will create an env.py file with secure variables to be housed in the .gitignore file so that I have secure information kept out of public spaces.
+- As the developer I can test and ensure the project works locally so that when I push it to Heroku, I know it will function in a live environment.
 
 ### EPIC | Project Environment Setup
 As the developer, I can deploy the app on Heroku so that users can view and interact with the site publicly.
@@ -71,13 +69,13 @@ As the developer, I can deploy the app on Heroku so that users can view and inte
 - As the developer I can link the GitHub repository to the Heroku app so that I can deploy my repository to the Heroku platform through a live site.
 
 ### EPIC | Profiles
-As the developer, I can create a Profiles model so that users can their own and others' profiles.
+As the developer, I can create a Profiles model so that users can view their own and others' profiles.
 
 #### User Stories
 - As the developer, I can create a register / login feature so users and create an account and login.
 - As the developer, I can display the user's name so that they see they've successfully logged-into their account.
 - As a developer/superuser I can view all profiles and their details so that I can see what has been created.
-- As a developer/superuser I can edit a profile when I am logged-in so that the information in the API is updated.
+- As a developer/superuser I can edit any profile when I am logged-in so that the information in the API is updated.
 - As the developer, I can display a log out feature so users can logout of their account.
 
 ### EPIC | Comments
@@ -93,14 +91,14 @@ As the developer, I can create a comments feature so registered, logged-in users
 As the developer, I can create a Search feature so that registered or logged-in users can search events happening by keyword or author.
 
 #### User Stories
-- As a developer/user I can see a search field under the NavBar so that I can search for a specific event by keyword or author.
+- As a developer/user I can see a search field under the NavBar so that I can search for a specific event by keyword or creator.
 - As a developer/user I can view a list of events by a specific profile so that I can filter events by user.
 
 ### EPIC | Following
 As the developer, I can create a follow module so that logged-in users can follow each other.
 
 #### User Stories
-- As a developer/superuser I can create a follow feature so that I know which users are following other via the data will be displayed in the API.
+- As a developer/superuser I can create a follow feature so that I know which users are following others and the data will be displayed in the API.
 
 ### EPIC | Events
 As the developer, I can create an Events feature so that registered / logged-in users can view events happening in the community.
@@ -110,23 +108,23 @@ As the developer, I can create an Events feature so that registered / logged-in 
 - As a developer/superuser I can view a list of all events so that I can see all events currently in the backend API.
 - As a developer/superuser I can look at a specific event by ID so that I can view the event details of a singular event.
 - As a developer/superuser I can edit a specific event by ID so that information remains updated in the API pertaining to that event.
-- As a developer/superuser I can delete a specific event so that no erroneous information will appear on the site (or in the backend API) if the event details are incorrect or the event has been cancelled.
+- As a developer/superuser I can delete a specific event so that no erroneous information will appear on the site (or in the backend API) if the event details are incorrect or irrelevant.
 
 ### EPIC | Reviews
-As the developer, I can create a reviews section so registered, logged-in users can leave a review comment and 1-5 star review of an activity or event.
+As the developer, I can create a reviews section so registered, logged-in users can leave a review comment and 0-5 star review of an activity or event.
 
 #### User Stories
 - As a developer/user I can create a review and rating so that other logged-in users can see what I thought about an event.
 - As a developer/user I can look at all reviewed events so that I can see the opinions of other users through data stored in the API.
-- As a developer/user I can edit my own review and save it so that irrelevant information is no longer stored in the API.
-- As a developer/user I can delete my own review so that that data is removed from the API.
+- As a superuser I can edit any review and save it so that irrelevant information is no longer stored in the API.
+- As a superuser I can delete any review so that that data is removed from the API.
 
 
 ### EPIC | Contact
 As the developer I can create a contact page with a form so that logged-in users can get in touch with city officials managing the site and events.
 
 #### User Stories
-- As a developer/superuser I can create a contact page so that I can see message sent from logged-in users.
+- As a developer/superuser I can create a contact page so that I can see messages sent from logged-in users.
 
 
 ### EPIC | Testing & Documentation
@@ -161,7 +159,7 @@ I created the following models for the Iowa Summer Activities Backend API, based
 
  The two models below were created as customs models to meet assessmment criteria for the PP5 Advanced Frontend project:
  * Review (For users to rate an activity using a five-star system and leave a review comment for that activity)
- * Contact (For users send a message to the site manager)
+ * Contact (For users to send a message to the site manager)
 
 [Back to top](<#table-of-contents>)
 
@@ -269,7 +267,7 @@ Once the superuser is logged in, they can create a contact message by filling ou
 
 ![Create a Contact](images/create-contact.png)
 
-The superuser can also edit the contact form by changing the information in the pre-populated fields and saving it. The updated information will be stored in the database. On this page, the superuser also has the ability to delete the contact form information, which will remove this information from the API and system in general.
+The superuser can also edit the contact form by changing the information in the pre-populated fields and saving it. The updated information will be stored in the database. On this page, the superuser also has the ability to delete the contact form information, which will remove this information from the API and the system in general.
 
 ![Edit Contact Form](images/edit-contact.png)
 
@@ -283,7 +281,7 @@ A superuser can create likes by filling out the form with the owner and the even
 
 ![Create likes](images/create-like.png)
 
-The superuser can also edit or delete the like but entering into the form. The pre-populated fields can be changed and the information saved to update the likes on the backend as well as on the frontend. Deleting a like will erase this information from both the frontend and backend.
+The superuser can also edit or delete the like by entering into the form. The pre-populated fields can be changed and the information saved to update the likes on the backend as well as on the frontend. Deleting a like will erase this information from both the frontend and backend.
 
 ![Contact Edit Form](images/edit-like.png)
 
@@ -332,7 +330,7 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 
 1. To start, create a GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template). 
 
-2. Click 'Use this template' and ill in the details for the new repository. When that's done, click 'Create Repository From Template'.
+2. Click 'Use this template' and fill in the details for the new repository. When that's done, click 'Create Repository From Template'.
 
 3. Once the repository is created, click the green 'Gitpod' button to open the Gitpod workspace.
 
@@ -348,7 +346,7 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 * ```pip3 freeze --local > requirements.txt```
 
 
-6. No, create the actual project using:
+6. Now, create the actual project using:
 
 * ```django-admin startproject project-name ``` 
 
@@ -379,9 +377,9 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 11. Next, connect an external PostgreSQL database to the app, using [ElephantSQL](https://customer.elephantsql.com/login). When you've logged in and are on the ElephantSQL dashboard, click 'Create New Instance' to create a new database. Complete the following:
 * Name the database
 * Select 'Tiny Turtle Free Plan'
-* Select data center near you
-
-  then click 'Create Instance'. Return to the ElephantSQL Dashboard and click your newly created database instance. Copy the Database URL and return to Heroku.
+* Select data center near you then click 'Create Instance'.
+* Return to the ElephantSQL Dashboard and click your newly created database instance. 
+* Copy the Database URL and return to Heroku.
 
 12. In the Heroku app settings tab, click 'Reveal Config Vars'. Create a variable called DATABASE_URL and paste the URL you just copied from ElephantSQL. This will connect the database to the app. 
 
@@ -398,11 +396,8 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 15. Now, to connect to the environment and settings.py file, add the following code to the settings.py file:
 
 * ```import os```
-
 * ```import dj_database_url```
-
 * ```if os.path.isfile("env.py"):```
-
 * ```import env```
 
 16. Then, in the same file, remove the unsafe secret key and replace it with:
@@ -412,7 +407,7 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 
 18. Add the Cloudinary URL to the gitpod environment in the env.py file, making sure it's correct:
 
-```os.environ["CLOUDINARY_URL"] = "cloudinary://************************"```
+* ```os.environ["CLOUDINARY_URL"] = "cloudinary://************************"```
 
 19. In the Heroku app, add the Cloudinary URL to the Config Vars, along with the DISABLE_COLLECTSTATIC variable (equal to 1) to be able to properly deploy.
 
@@ -432,7 +427,7 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 
 23. Save the files, commit and push these changes to GitHub. 
 
-24. To deploy in Heroku, select the 'deploy' tab. Scroll down and select 'GitHub' to connect to. Search for your repository and connect them. Then scroll down to manual deployment and click 'deploy branch'.  it's time for deployment. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
+24. Scroll to the top of the settings page in Heroku and click the 'Deploy' tab. For deployment method, select 'Github'. Search for the repository name you want to deploy and then click connect.
 
     The deployed Heroku API can be found [here](https://activities-backend-api-a2cb7e703660.herokuapp.com/).
     The backend GitHub repository can be found [here](https://github.com/Kaylaesmith1/activities-backend-api).
@@ -461,8 +456,6 @@ To clone this repository follow the steps below:
 * When brainstorming which custom models I wanted to include in my project that would be most related to an activities social platform, I came across another student's project, Happening, that had a similar context. The developer created a [Reviews section](https://github.com/quiltingcode/events-backend-api/tree/main/reviews) I thought would be a great addition to the Iowa Summer Activities website. My 'Reviews' app and star rating system is largely based on her custom model.
 
 * My 'Contact' app was developed using another student's repository as a guide. He also created a [Contact model](https://github.com/PEmbarach/drf-api-coffeeie/tree/main/contact), which I used to create my own for Iowa Summer Activities.
-
-* [Lucid chart](https://lucid.app/documents#/documents?folder_id=recent) was used to create the diagram showing the database layout and relationships.
 
 * To add models to the Django backend, Martin from tutoring was helpful in sending [this documentation](https://codinggear.blog/how-to-register-model-in-django-admin/?utm_content=cmp-true).
 
