@@ -66,10 +66,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEBUG' in os.environ
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu102.gitpod.io', 'activities-backend-api-a2cb7e703660.herokuapp.com']  # noqa
-# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
+# ALLOWED_HOSTS = ['localhost', '8000-kaylaesmith-activitiesb-lhjnqryo3hg.ws-eu102.gitpod.io', 'activities-backend-api-a2cb7e703660.herokuapp.com']  # noqa
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST')]
 
 # Application definition
 
