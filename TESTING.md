@@ -2,13 +2,12 @@ Return to [README](README.md)
 
 # **Iowa Summer Activities API | Testing**
 
+## Table of contents
 
-## Table of Contents
-
-* [**Testing**](<#testing>)
-    * [Code Validation](<#code-validation>)
-    * [Manual Testing](<#manual-testing>)
-    * [Bugs](<#known-bugs>)
+  - [Code Validation](#code-validation)
+  - [Manual Testing](#manual-testing)
+  - [Resolved Bug](#resolved-bug)
+  - [Unresolved Bug](#unresolved-bug)
 
 ## Code Validation 
 
@@ -256,6 +255,16 @@ There are no other unresolved bugs that I am aware of. Below is a description of
 
     ![Contact form error](images/bugs/backend-error.png)
     </details>
+###
 
+2. A second bug was identified just before project submission. I did a final readthrough of README and TESTING files and a final deployment of the frontend and backend to Heroku. Looking through the live apps, I noticed the backend CSS was broken. This was the first time I'd noticed this after any deployment throughout the project. 
 
-    #### [Back to top](<#table-of-contents>)
+    After speaking with tutoring (thank you, Sarah and Sean), I was reassured that as long as the frontend worked properly, I could submit the project as-is with no detriment to my assessment grade. I've chosen to do this but wanted to acknowledge the error. 
+
+      <details>
+    <summary>Justification Django backend CSS</summary> 
+
+    ![Contact form error](images/bugs/css-backend-broken.png)
+      </details>
+
+  #### [Back to top](<#table-of-contents>)
